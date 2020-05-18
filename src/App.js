@@ -9,6 +9,8 @@ import AddQuestion from './pages/add/addQuestion.component'
 import LeaderBoard from './pages/leaderboard/leaderboard.component'
 import QuestionDetail from './pages/question/question.component'
 
+import Nav from './components/nav/nav.component'
+
 import './App.css'
 
 class App extends Component {
@@ -19,6 +21,7 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
+      <Nav />
         <Switch>
           <Route path='/login' component={Login}></Route>
           <Route exact path='/' component={DashBoard}></Route>
