@@ -9,6 +9,8 @@ import AddQuestion from './pages/add/addQuestion.component'
 import LeaderBoard from './pages/leaderboard/leaderboard.component'
 import QuestionDetail from './pages/question/question.component'
 
+import './App.css'
+
 class App extends Component {
   componentDidMount() {
     const { dispatch } = this.props
