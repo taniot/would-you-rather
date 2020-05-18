@@ -1,4 +1,4 @@
-export const GET_USERS = 'GET_USER'
+export const GET_USERS = 'GET_USERS'
 
 export function getUsers(users) {
   return {

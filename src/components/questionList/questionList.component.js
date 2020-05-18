@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-
+import QuestionSwitch from '../questionSwitch/questionSwitch.component'
 class QuestionList extends Component {
   render() {
     const { list } = this.props
@@ -7,7 +7,8 @@ class QuestionList extends Component {
     return (
       <Fragment>
         {list.map((question, id) => (
-         <div key={id}>Question Switch</div>
+            <QuestionSwitch key={question} id={question} list={true} />
+
         ))}
       </Fragment>
     )
