@@ -33,15 +33,14 @@ class Login extends Component {
 
   render() {
     const { from } = this.props.location.state || { from: { pathname: '/' } }
-    const { redirectToReferrer } = this.state
+    const { redirectToReferrer, buttonDisabled } = this.state
     const { options } = this.props
-    const { buttonDisabled } = this.state
     const { Option } = Select
-
 
     if (redirectToReferrer) {
       return <Redirect to={from} />
     }
+
     return (
       <Container>
         <LoginContainer>

@@ -11,6 +11,7 @@ import QuestionDetail from './pages/question/question.component'
 import NotFound from './components/notfound/notFound.component'
 import Nav from './components/nav/nav.component'
 
+import PrivateRoute from './components/privateRoute/privateRoute.component'
 import './App.css'
 
 class App extends Component {
@@ -21,13 +22,19 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-      <Nav />
+        <Nav />
         <Switch>
           <Route path='/login' component={Login}></Route>
-          <Route exact path='/' component={DashBoard}></Route>
-          <Route path='/add' component={AddQuestion}></Route>
-          <Route path='/leaderboard' component={LeaderBoard}></Route>
-          <Route path='/questions/:id' component={QuestionDetail}></Route>
+          <PrivateRoute exact path='/' component={DashBoard}></PrivateRoute>
+          <PrivateRoute path='/add' component={AddQuestion}></PrivateRoute>
+          <PrivateRoute
+            path='/leaderboard'
+            component={LeaderBoard}
+          ></PrivateRoute>
+          <PrivateRoute
+            path='/questions/:id'
+            component={QuestionDetail}
+          ></PrivateRoute>
           <Route component={NotFound}></Route>
         </Switch>
       </div>
