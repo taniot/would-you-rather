@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import Logout from '../logout/logout.component'
 import { HeaderContainer, LogoContainer, MenuContainer } from './nav.styles'
 
 class Nav extends Component {
@@ -37,7 +38,7 @@ class Nav extends Component {
                 <Link to='/leaderboard'>Leaderboard</Link>
               </li>
               <li>
-               Logout
+               <Logout />
               </li>
             </MenuContainer>
           </Fragment>

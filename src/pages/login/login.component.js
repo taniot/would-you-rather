@@ -38,7 +38,6 @@ class Login extends Component {
     const { buttonDisabled } = this.state
     const { Option } = Select
 
-    console.log(this.props.location)
 
     if (redirectToReferrer) {
       return <Redirect to={from} />
