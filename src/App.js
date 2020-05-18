@@ -8,7 +8,7 @@ import DashBoard from './pages/dashboard/dashboard.component'
 import AddQuestion from './pages/add/addQuestion.component'
 import LeaderBoard from './pages/leaderboard/leaderboard.component'
 import QuestionDetail from './pages/question/question.component'
-
+import NotFound from './components/notfound/notFound.component'
 import Nav from './components/nav/nav.component'
 
 import './App.css'
@@ -28,6 +28,7 @@ class App extends Component {
           <Route path='/add' component={AddQuestion}></Route>
           <Route path='/leaderboard' component={LeaderBoard}></Route>
           <Route path='/questions/:id' component={QuestionDetail}></Route>
+          <Route component={NotFound}></Route>
         </Switch>
       </div>
     )
