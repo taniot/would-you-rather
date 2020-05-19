@@ -1,18 +1,19 @@
-import React, { Component, Fragment } from 'react'
+import React, { Fragment } from 'react'
+import PropTypes from 'prop-types'
 import QuestionSwitch from '../questionSwitch/questionSwitch.component'
-class QuestionList extends Component {
-  render() {
-    const { list } = this.props
 
-    return (
-      <Fragment>
-        {list.map((question, id) => (
-            <QuestionSwitch key={question} id={question} list={true} />
+const QuestionList = ({ list }) => {
+  return (
+    <Fragment>
+      {list.map((question) => (
+        <QuestionSwitch key={question} id={question} list={true} />
+      ))}
+    </Fragment>
+  )
+}
 
-        ))}
-      </Fragment>
-    )
-  }
+QuestionList.propTypes = {
+  list: PropTypes.array.isRequired,
 }
 
 export default QuestionList

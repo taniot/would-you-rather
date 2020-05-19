@@ -1,30 +1,27 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import QuestionPreview from '../question/questionPreview.component'
 import QuestionAnswered from '../question/questionAnswered.component'
 import QuestionUnAnswered from '../question/questionUnAnswered.component'
 
-class QuestionSwitch extends Component {
-  render() {
-    const { isAnswered, id, list, question } = this.props
+const QuestionSwitch = ({ id, isAnswered, list, question }) => {
+  if (!question) {
+    return <Redirect to='/404' />
+  }
 
-    if (!question) {
-      return <Redirect to='/404' />
-    }
+  switch (true) {
+    case list === true:
+      return <QuestionPreview id={id} />
 
-    switch (true) {
-      case list === true:
-        return <QuestionPreview id={id} />
+    case isAnswered === true:
+      return <QuestionAnswered id={id} />
+    case isAnswered === false:
+      return <QuestionUnAnswered id={id} />
 
-      case isAnswered === true:
-        return <QuestionAnswered id={id} />
-      case isAnswered === false:
-        return <QuestionUnAnswered id={id} />
-
-      default:
-        return <QuestionUnAnswered id={id} />
-    }
+    default:
+      return <QuestionUnAnswered id={id} />
   }
 }
 
@@ -43,6 +40,13 @@ const mapStatetoProps = ({ questions, users, authedUser }, { id }) => {
     isAnswered,
     question,
   }
+}
+
+QuestionSwitch.propTypes = {
+  id: PropTypes.string.isRequired,
+  isAnswered: PropTypes.bool.isRequired,
+  list: PropTypes.bool,
+  question: PropTypes.object.isRequired,
 }
 
 export default connect(mapStatetoProps)(QuestionSwitch)

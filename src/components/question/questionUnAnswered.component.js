@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { handleAnswer } from '../../actions/shared'
 import { Button, Radio } from 'antd'
+import PropTypes from 'prop-types'
+
 import {
   QuestionMainContainer,
   QuestionByContainer,
@@ -14,6 +16,14 @@ class QuestionUnAnswered extends Component {
   state = {
     answer: '',
     buttonDisabled: true,
+  }
+
+  static propTypes = {
+    id: PropTypes.string.isRequired,
+    authedUser: PropTypes.string.isRequired,
+    user: PropTypes.object.isRequired,
+    question: PropTypes.object.isRequired,
+    questionBy: PropTypes.object.isRequired,
   }
 
   handleChange = (e) => {

@@ -29,7 +29,6 @@ class App extends Component {
       <div className='App'>
       <LoadingBar />
         <Nav />
-      
         <Switch>
           <Route path='/login' component={Login}/>
           <PrivateRoute exact path='/' component={DashBoard}/>

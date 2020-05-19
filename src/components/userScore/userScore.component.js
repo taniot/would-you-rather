@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import {
   UserMainContainer,
@@ -8,34 +9,33 @@ import {
   UserName,
   UserAnsweredQuestions,
   UserCreatedQuestions,
-  UserScoreTable
+  UserScoreTable,
 } from './userScore.styles'
 
+const UserScore = ({ name, questions, answers, score, avatarURL }) => {
+  return (
+    <UserMainContainer>
+      <UserAvatarContainer>
+        <img src={avatarURL} alt={name} />
+      </UserAvatarContainer>
+      <UserInfoContainer>
+        <UserName>{name}</UserName>
+        <UserAnsweredQuestions>
+          Answered questions: <span>{answers}</span>
+        </UserAnsweredQuestions>
 
+        <UserCreatedQuestions>
+          Created questions: <span>{questions}</span>{' '}
+        </UserCreatedQuestions>
+      </UserInfoContainer>
 
-class UserScore extends Component {
-  render() {
-    const { name, questions, answers, score, avatarURL } = this.props
-
-    return (
-      <UserMainContainer>
-        <UserAvatarContainer>
-          <img src={avatarURL} alt={name} />
-        </UserAvatarContainer>
-        <UserInfoContainer>
-          <UserName>{name}</UserName>
-          <UserAnsweredQuestions>Answered questions: <span>{answers}</span></UserAnsweredQuestions>
-          
-          <UserCreatedQuestions>Created questions: <span>{questions}</span> </UserCreatedQuestions>
-        </UserInfoContainer>
-
-        <UserScoreContainer>
-        
-        <UserScoreTable><p className='title'>Score</p> <p className='score'>{score}</p></UserScoreTable>
-        </UserScoreContainer>
-      </UserMainContainer>
-    )
-  }
+      <UserScoreContainer>
+        <UserScoreTable>
+          <p className='title'>Score</p> <p className='score'>{score}</p>
+        </UserScoreTable>
+      </UserScoreContainer>
+    </UserMainContainer>
+  )
 }
 
 const mapStateToProps = ({ users }, { id }) => {
@@ -48,6 +48,14 @@ const mapStateToProps = ({ users }, { id }) => {
     answers: Object.keys(user.answers).length,
     score: user.questions.length + Object.keys(user.answers).length,
   }
+}
+
+UserScore.propTypes = {
+  name: PropTypes.string.isRequired,
+  questions: PropTypes.number.isRequired,
+  answers: PropTypes.number.isRequired,
+  score: PropTypes.number.isRequired,
+  avatarURL: PropTypes.string.isRequired,
 }
 
 export default connect(mapStateToProps)(UserScore)
