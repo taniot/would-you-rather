@@ -4,10 +4,6 @@ Would You Rather is a web app build with [react](https://reactjs.org/) that lets
 
 In your app, users will be able to answer questions, see which questions they haven’t answered, see how other people have voted, post questions, and see the ranking of users on the leaderboard.
 
-## Demo
-
-You can see a live demo of the project [here](https://would-you-rather-app.herokuapp.com)
-
 ## Project Setup
 
 To setup the project locally you need [npm](https://www.npmjs.com/) or [Yarn](https://yarnpkg.com/en/).
