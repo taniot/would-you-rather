@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import QuestionPreview from '../question/questionPreview.component'
-
+import QuestionAnswered from '../question/questionAnswered.component'
+import QuestionUnAnswered from '../question/questionUnAnswered.component'
 
 class QuestionSwitch extends Component {
   render() {
@@ -17,12 +18,12 @@ class QuestionSwitch extends Component {
         return <QuestionPreview id={id} />
 
       case isAnswered === true:
-      return 2
+        return <QuestionAnswered id={id} />
       case isAnswered === false:
-        return 3
+        return <QuestionUnAnswered id={id} />
 
       default:
-        return <div>Default</div>
+        return <QuestionUnAnswered id={id} />
     }
   }
 }
