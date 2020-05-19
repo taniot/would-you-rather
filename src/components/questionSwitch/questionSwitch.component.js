@@ -46,7 +46,7 @@ QuestionSwitch.propTypes = {
   id: PropTypes.string.isRequired,
   isAnswered: PropTypes.bool.isRequired,
   list: PropTypes.bool,
-  question: PropTypes.object.isRequired,
+  question: PropTypes.object,
 }
 
 export default connect(mapStatetoProps)(QuestionSwitch)
