@@ -11,31 +11,31 @@ const StyledTabs = styled(Tabs)`
 `
 
 class DashBoard extends Component {
-    render() {
-      const { answered, unanswered } = this.props
-  
-      return (
-        <Container>
-          <StyledTabs defaultActiveKey='1' animated={false}>
-            <TabPane tab={<span>UnAnswered</span>} key='1'>
-              {unanswered.length ? (
-                <QuestionsList list={unanswered} />
-              ) : (
-                <p>You've answered all questions.</p>
-              )}
-            </TabPane>
-            <TabPane tab={<span>Answered</span>} key='2'>
-              {answered.length ? (
-                <QuestionsList list={answered} />
-              ) : (
-                <p>Start playing and answer questions!</p>
-              )}
-            </TabPane>
-          </StyledTabs>
-        </Container>
-      )
-    }
+  render() {
+    const { answered, unanswered } = this.props
+
+    return (
+      <Container>
+        <StyledTabs defaultActiveKey='1' animated={false}>
+          <TabPane tab={<span>UnAnswered</span>} key='1'>
+            {unanswered.length ? (
+              <QuestionsList list={unanswered} />
+            ) : (
+              <p>You've answered all questions.</p>
+            )}
+          </TabPane>
+          <TabPane tab={<span>Answered</span>} key='2'>
+            {answered.length ? (
+              <QuestionsList list={answered} />
+            ) : (
+              <p>Start playing and answer questions!</p>
+            )}
+          </TabPane>
+        </StyledTabs>
+      </Container>
+    )
   }
+}
 
 function mapStateToProps({ authedUser, users, questions }) {
   const user = users[authedUser]

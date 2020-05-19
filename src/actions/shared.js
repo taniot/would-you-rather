@@ -2,6 +2,8 @@ import { getInitialData, saveQuestion, saveQuestionAnswer } from '../utils/api'
 import { getUsers, addUserQuestion, addUserAnswer } from './users'
 import { getQuestions, addQuestion, addQuestionAnswer } from './questions'
 import { showLoading, hideLoading } from 'react-redux-loading-bar'
+
+
 export function handleInitialData() {
   return (dispatch) => {
     dispatch(showLoading())
