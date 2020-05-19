@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Container } from '../pages.styles'
+import UserScore from '../../components/userScore/userScore.component'
 
 class LeaderBoard extends Component {
   render() {
@@ -8,9 +9,7 @@ class LeaderBoard extends Component {
     return (
       <Container>
         {users.map((user) => (
-          <div key={user.id} id={user.id}>
-            {user.id}
-          </div>
+          <UserScore key={user.id} id={user.id} />
         ))}
       </Container>
     )

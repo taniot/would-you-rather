@@ -21,14 +21,14 @@ class DashBoard extends Component {
               {unanswered.length ? (
                 <QuestionsList list={unanswered} />
               ) : (
-                <p>You've answered all the questions.</p>
+                <p>You've answered all questions.</p>
               )}
             </TabPane>
             <TabPane tab={<span>Answered</span>} key='2'>
               {answered.length ? (
                 <QuestionsList list={answered} />
               ) : (
-                <p>Start playing and answer the questions!</p>
+                <p>Start playing and answer questions!</p>
               )}
             </TabPane>
           </StyledTabs>
